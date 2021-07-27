@@ -1,0 +1,19 @@
+<footer class="pt-4 my-md-5 pt-md-5 border-top">
+  <p class="m-0 text-dark text-center ">
+    <a href="{% url 'about:author' %}">Об авторе</a> |
+    <a href="{% url 'about:tech' %}">Технологии</a>
+  </p>
+  <p class="m-0 text-dark text-center">
+    Социальная сеть <span style="color:red">Ya</span>tube © {{ year }}, все
+    права защищены.<br>
+
+
+    <a class="m-0 text-muted text-center">
+      На сайте уже зарегистрировалось {{ user_count }} пользователей</a><br>
+
+<a class="m-0 text-muted text-center">
+    Если лень регистрироваться: <cite title="Source Title">test_user,
+    test_password</cite></a>
+
+  </p>
+</footer>

@@ -1,0 +1,59 @@
+{% extends "includes/base.html" %}
+
+{% block title %}Об авторе проекта{% endblock %}
+{% block content %}
+  {% load static %}
+  <div class="row">
+    <!-- Левый вспомогательный блок -->
+    <div class="col-md-3 mb-3 mt-1">
+      <div class="card">
+        <div class="card-body">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <div class="h3">
+                Об авторе
+              </div>
+            </li>
+            <li class="list-group-item">
+              <div class="h6 text-muted">
+                Old beginning junior
+              </div>
+            </li>
+            <li class="list-group-item">
+            <a class="btn btn-sm"
+             href="https://www.instagram.com/egor_egorovv/"
+             role="button">
+            <img src="{% static '/icons/instagram.svg' %}" alt="Insta" width="32" height="32">
+          </a>
+            <a class="btn btn-sm"
+             href="https://github.com/egor-fipu"
+             role="button">
+            <img src="{% static '/icons/github.svg' %}" alt="GitHub" width="32" height="32">
+          </a>
+              </a>
+            <a class="btn btn-sm"
+             href="https://vk.com/id1987712"
+             role="button">
+            <img src="{% static '/icons/bootstrap-fill.svg' %}" alt="VK" width="32" height="32">
+          </a>
+            </li>
+
+
+
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!-- Тело страницы -->
+    <div class="col-md-9">
+      <div class="card-body">
+        <div class="card-text">
+          <p>Текст страницы "Об авторе"</p>
+
+          <img src="{% static '/images/about_me.jpg' %}" class="img-fluid" alt="Фото автора">
+
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

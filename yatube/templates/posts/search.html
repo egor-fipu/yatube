@@ -1,0 +1,72 @@
+{% extends "includes/base.html" %}
+{% load user_filters %}
+{% block title %}Поиск{% endblock %}
+{% block header %}{% endblock %}
+{% block content %}
+
+  <div class="container">
+
+    {% include "includes/menu.html" with index=True %}
+    <h1>Поиск пользоваетлей и постов</h1>
+  <p class="lead">Поиск осуществляется по логину, имени и фамилии пользователя,
+  посты ищутся по тексту. В сязи со специфичностью работы SQLite, поиск на русском
+  языке осуществляется только с учетом регистра.</p>
+
+
+    <div class="card my-4">
+      <form method="post" action="{% url 'search_user' %}">
+        {% csrf_token %}
+        <h5 class="card-header">Ищем лучше, чем Яндекс:</h5>
+        <div class="card-body">
+          <div class="form-group">
+            {{ form.search|addclass:"form-control" }}
+          </div>
+          <button type="submit" class="btn btn-primary">Поиск</button>
+        </div>
+      </form>
+    </div>
+
+  {% if request.method == 'POST' %}
+{% if find_user.count == 0 %}
+  <h5>Поиск пользователей не дал результатов...</h5>
+  {% else %}
+  <h5>Результаты поиска пользователей:</h5>
+  {% endif %}
+  {% endif %}
+    {% for item in find_user %}
+      <div class="card mb-3 mt-1 shadow-sm">
+        <div class="media-body card-body">
+          <h5 class="mt-0">
+            <a href="{% url 'profile' item.username %}">#{{ item.username }}</a>
+          </h5>
+          <p>{{ item.first_name }} {{ item.last_name }}</p>
+          <hr>
+          <small class="text-muted">Постов {{ item.posts.count }}</small>
+        </div>
+      </div>
+    {% endfor %}
+
+  {% if request.method == 'POST' %}
+  {% if find_post.count == 0 %}
+  <h5>Поиск постов не дал результатов...</h5>
+   {% else %}
+    <h5>Результаты поиска постов:</h5>
+  {% endif %}
+  {% endif %}
+  {% for item in find_post %}
+      <div class="card mb-3 mt-1 shadow-sm">
+        <div class="media-body card-body">
+          <h5 class="mt-0">
+            <a href="{% url 'post' item.author.username item.id %}">Пост автора {{ item.author }}</a>
+          </h5>
+          <p>{{ item.text|truncatechars:300 }}</p>
+          <hr>
+          <small class="text-muted">{{ item.pub_date|date:"d M Y" }}</small>
+        </div>
+      </div>
+    {% endfor %}
+
+
+  </div>
+
+{% endblock %}

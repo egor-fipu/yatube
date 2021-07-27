@@ -1,0 +1,56 @@
+<!-- Шаблон карточки автора -->
+<div class="card">
+  <div class="card-body">
+    <div class="h2">
+      <!-- Имя автора -->
+      {{ author.get_full_name }}
+    </div>
+    <div class="h3 text-muted">
+      <!-- username автора -->
+      @{{ author.username }}
+    </div>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">
+      <div class="h6 text-muted">
+        Подписчиков: {{ author.following.count }} <br>
+        Подписан: {{ author.follower.count }}
+      </div>
+    </li>
+    <li class="list-group-item">
+
+
+      <div class="h6 text-muted">
+        <!--Количество записей -->
+        Записей: {{ author.posts.count }}
+      </div>
+
+      {% if user != author %}
+        {% if user.is_authenticated %}
+        <li class="list-group-item p-0 text-center">
+
+
+            {% if following %}
+              <a
+                  class="btn btn-light btn-sm btn-block"
+                  href="{% url 'profile_unfollow' author.username %}"
+                  role="button">
+                Отписаться
+              </a>
+            {% else %}
+              <a
+                  class="btn btn-sm btn-primary btn-block"
+                  href="{% url 'profile_follow' author.username %}"
+                  role="button">
+                Подписаться
+              </a>
+            {% endif %}
+
+
+        </li>
+            {% endif %}
+      {% endif %}
+
+    </li>
+  </ul>
+</div>

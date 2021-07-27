@@ -1,0 +1,27 @@
+{% extends "includes/base.html" %}
+{% block title %}Сообщества{% endblock %}
+{% block header %}{% endblock %}
+{% block content %}
+
+  <div class="container">
+
+    {% include "includes/menu.html" with index=True %}
+    <h1>Сообщества</h1>
+
+    {% for group in page %}
+      <div class="card mb-3 mt-1 shadow-sm">
+        <div class="media-body card-body">
+          <h5 class="mt-0">
+            <a href="{% url 'group_posts' group.slug %}">#{{ group.title }}</a>
+          </h5>
+          <p>{{ group.description|linebreaksbr }}</p>
+          <hr>
+          <small class="text-muted">В сообществе {{ group.post_set.count }} постов</small>
+        </div>
+      </div>
+    {% endfor %}
+
+    {% include "includes/paginator.html" %}
+  </div>
+
+{% endblock %}

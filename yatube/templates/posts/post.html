@@ -1,0 +1,20 @@
+{% extends "includes/base.html" %}
+{% block title %}Просмотр записи пользователя {{ post.author }}{% endblock %}
+{% block header %}{% endblock %}
+{% block content %}
+  <main role="main" class="container">
+    <div class="row">
+      <div class="col-md-3 mb-3 mt-1">
+        <!-- Карточка автора -->
+        {% include "includes/author_card.html" %}
+      </div>
+
+      <div class="col-md-9">
+        <!-- Карточка поста -->
+        {% include "includes/post_card.html" with flag=1%}
+        {% include "includes/comments.html" %}
+      </div>
+    </div>
+  </main>
+
+{% endblock %}

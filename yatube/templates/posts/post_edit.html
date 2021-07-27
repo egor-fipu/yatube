@@ -1,0 +1,20 @@
+{% extends "posts/new_post.html" %}
+{% block one %}
+  {% block title %}Редактировать запись{% endblock %}
+  {% block header %}{% endblock %}
+{% endblock %}
+
+{% block two %}
+  <div class="card-header">Редактировать запись</div>
+{% endblock %}
+{% block three %}
+  <button type="submit" class="btn btn-primary">Сохранить</button>
+  <a class="btn btn-md btn-danger"
+             href="{% url "delete_post" username=post.author.username post_id=post.id %}"
+             role="button">
+            Удалить
+          </a>
+{% endblock %}
+
+
+

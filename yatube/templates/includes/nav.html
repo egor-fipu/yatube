@@ -1,0 +1,46 @@
+{% load user_filters %}
+<nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+  <a class="navbar-brand" href="{% url 'index' %}"><span
+      style="color: red">Ya</span>tube</a>
+
+
+  <nav class="my-2 my-md-0 mr-md-3">
+
+    {% if user.is_authenticated %}
+      <!-- Кнопка с пользователем -->
+      <a class="btn btn-primary" role="button"
+         href="{% url 'profile' username=user.username %}">Пользователь: {{ user.username }}</a>
+      <div class="btn-group">
+        <!-- Кнопка с выпадающим меню -->
+        <div class="btn-group">
+          <button type="button" data-toggle="dropdown" class="btn btn-outline-primary
+          dropdown-toggle">
+            Профиль
+            <span class="caret"></span>
+          </button>
+          <!-- Выпадающее меню -->
+          <ul class="dropdown-menu">
+            <!-- Пункты меню -->
+            <li><a class="dropdown-item" href="{% url 'password_change' %}">Изменить
+              пароль</a></li>
+            <li><a class="dropdown-item" href="{% url 'logout' %}">Выйти</a>
+            </li>
+            <li class="divider"></li>
+          </ul>
+        </div>
+        <!-- Обычные кнопки -->
+        <a class="btn btn-outline-primary" role="button"
+           href=" {% url 'new_post' %}">Новая
+          запись</a>
+      </div>
+      <!-- Если пользователь неавторизирован -->
+    {% else %}
+      <div class="btn-group">
+      <a class="btn btn-outline-primary" role="button" href=
+          "{% url 'login' %}">Войти</a>
+      <a class="btn btn-outline-primary" role="button"
+         href="{% url 'signup' %}">Регистрация</a>
+    {% endif %}
+    </div>
+  </nav>
+</nav>

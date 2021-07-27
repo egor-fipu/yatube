@@ -1,0 +1,22 @@
+{% extends "includes/base.html" %}
+{% block title %}Посты авторов, на которых Вы подписаны{% endblock %}
+{% block header %}{% endblock %}
+{% block content %}
+
+  <div class="container">
+    {% include "includes/menu.html" with index=True %}
+  {% if page %}
+  <h1>Посты авторов, на которых Вы подписаны</h1>
+  {% else %}
+  <h1>Вы не подписаны ни на одного автора</h1>
+
+    <p class="lead">Чтобы подписаться перейдите в профайл избранного автора.</p>
+
+  {% endif %}
+    {% for post in page %}
+      {% include "includes/post_card.html" with post=post %}
+    {% endfor %}
+    {% include "includes/paginator.html" %}
+  </div>
+
+{% endblock %}
