@@ -6,8 +6,9 @@
 
 ### Технологии
 
-- Python 3.9 
-- Django 2.2.19
+- Python 3.7 
+- Django 2.2.6
+- Django Rest Framework 3.12.4
 
 ### Запуск проекта в dev-режиме
 
@@ -32,6 +33,10 @@ python manage.py runserver
 ```
 python manage.py test
 ```
+
+### Документация к API после запуска доступна по адресу:
+
+redoc/
 
 ### Работу сайта можно посмотреть по адресу:
 

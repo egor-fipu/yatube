@@ -14,3 +14,8 @@ sqlparse==0.3.0           # via django
 urllib3==1.25.6           # via requests
 zipp==2.2.0               # via importlib-metadata
 mixer==7.1.2
+djangorestframework==3.12.4
+djangorestframework-simplejwt==4.7.2
+Pillow==7.0.0
+djoser==2.1.0
+django-filter

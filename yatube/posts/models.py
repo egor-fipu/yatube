@@ -34,6 +34,9 @@ class Group(models.Model):
     slug = models.SlugField(unique=True, verbose_name='Адрес')
     description = models.TextField(max_length=200, verbose_name='Описание')
 
+    class Meta:
+        ordering = ['-slug']
+
     def __str__(self):
         return self.title
 
