@@ -26,7 +26,6 @@ python manage.py runserver
 ```
 
 ### Тестирование
-#### (Coverage report: 95%)
 
 - В папке с файлом manage.py выполните команду:
 
@@ -34,9 +33,9 @@ python manage.py runserver
 python manage.py test
 ```
 
-### Документация к API после запуска доступна по адресу:
+### Документация к API доступна по адресу:
 
-redoc/
+http://egoregorov.pythonanywhere.com/redoc/
 
 ### Работу сайта можно посмотреть по адресу:
 
@@ -45,4 +44,3 @@ http://egoregorov.pythonanywhere.com/
 ### Авторы
 
 Яндекс Практикум, Егор Коростелев
-
