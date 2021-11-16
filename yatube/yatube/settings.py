@@ -20,11 +20,8 @@ DEBUG = False
 ALLOWED_HOSTS = [
     '51.250.8.170',
     'localhost',
-    '127.0.0.1',
-    '[::1]',
-    'testserver',
-    'www.egoregorov.pythonanywhere.com',
-    'egoregorov.pythonanywhere.com',
+    'evanglobal.ru',
+    'www.evanglobal.ru',
 ]
 
 # Application definition
