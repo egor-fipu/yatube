@@ -19,3 +19,5 @@ djangorestframework-simplejwt==4.7.2
 Pillow==7.0.0
 djoser==2.1.0
 django-filter
+psycopg2-binary
+django-environ
